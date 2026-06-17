@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Prasad Ganesh Hingane | Professional Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Official Portfolio of Prasad Ganesh Hingane - Electronics & Computer Engineering student specializing in Embedded Systems, IoT, and Cybersecurity.">
+  
+  <meta property="og:title" content="Prasad Ganesh Hingane | Professional Engineering Portfolio" />
+  <meta property="og:description" content="Official Portfolio of Prasad Ganesh Hingane - Electronics & Computer Engineering student specializing in Embedded Systems, IoT, and Cybersecurity." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://prasadingane-65.github.io/portfolio" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/PRASADINGANE-65/portfolio/main/assets/portfolio-banner.jpg" />
+
+  <style>
+    /* Default Light Theme Variables */
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --card-bg: #ffffff;
+      --accent-slate: #0f172a;
+      --accent-blue: #2563eb;
+      --text: #1e293b;
+      --text-soft: #64748b;
+      --border-line: #e2e8f0;
+      --radius: 12px;
+      --nav-bg: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Dark Theme Variables */
+    [data-theme="dark"] {
+      --bg: #0b0f19;
+      --bg-alt: #111827;
+      --card-bg: #1f2937;
+      --accent-slate: #f8fafc;
+      --accent-blue: #38bdf8;
+      --text: #f3f4f6;
+      --text-soft: #9ca3af;
+      --border-line: #374151;
+      --nav-bg: rgba(11, 15, 25, 0.85);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Subtle Technical Grid Line Overlay */
+    .space-container {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background-image: 
+        linear-gradient(var(--border-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-line) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.2;
+    }
+
+    /* Antigravity Micro-Particles Styling */
+    .dust {
+      position: absolute;
+      background: var(--text-soft);
+      border-radius: 50%;
+      opacity: 0;
+      animation: floatUp 18s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(105vh) translateX(0) scale(0.5); opacity: 0; }
+      15% { opacity: 0.3; }
+      85% { opacity: 0.3; }
+      100% { transform: translateY(-5vh) translateX(40px) scale(1.2); opacity: 0; }
+    }
+
+    /* Sophisticated, Controlled Weightless Micro-Animations */
+    @keyframes weightlessSlow {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(0.2deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    @keyframes weightlessMedium {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Layout Framework */
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 20px 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border-line);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      max-width: 1050px;
+      margin: 0 auto;
+      gap: 15px;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.03em;
+      color: var(--accent-slate);
+      white-space: nowrap;
+    }
+
+    .nav-right-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 13.5px;
+      font-weight: 500;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-blue);
+    }
+
+    /* Interactive Theme Toggle Button Styles */
+    .theme-toggle-btn {
+      background: var(--bg-alt);
+      border: 1px solid var(--border-line);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--accent-blue);
+      background: var(--card-bg);
+    }
+
+    /* Hero Layout */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.30fr 1fr;
+      gap: 40px;
+      padding: 60px 0 40px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-blue);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 3.8vw, 40px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--accent-slate);
+      margin-bottom: 15px;
+    }
+
+    .hero-title span {
+      color: var(--accent-blue);
+    }
+
+    .hero-subtitle {
+      color: var(--text-soft);
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    /* Hover Floating Card */
+    .floating-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+      animation: weightlessMedium 6s ease-in-out infinite;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent-slate);
+      color: var(--bg);
+      border: 1px solid var(--accent-slate);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--accent-slate);
+      border: 1px solid var(--border-line);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-alt);
+      border-color: var(--text-soft);
+    }
+
+    /* Structured Layout Sections */
+    section {
+      margin-top: 50px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent-slate);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    /* Fluid Card Interface */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s, border-color 0.3s;
+    }
+
+    .grid .card:nth-child(odd) { animation: weightlessSlow 7s ease-in-out infinite alternate; }
+    .grid .card:nth-child(even) { animation: weightlessSlow 8s ease-in-out infinite alternate-reverse; animation-delay: -1.5s; }
+
+    .card:hover {
+      transform: translateY(-6px) !important;
+      border-color: var(--accent-blue);
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.08);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--accent-slate);
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      color: var(--accent-blue);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .card-tag {
+      font-size: 10px;
+      font-weight: 600;
+      background: var(--bg-alt);
+      color: var(--text-soft);
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--border-line);
+    }
+
+    .card-body {
+      font-size: 13.5px;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .card-list {
+      margin-left: 16px;
+      margin-bottom: 14px;
+      font-size: 13.5px;
+      color: var(--text);
+    }
+
+    .card-list li {
+      margin-bottom: 6px;
+    }
+
+    /* Badges Layout */
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      font-size: 11px;
+      font-weight: 500;
+      background: var(--bg-alt);
+      border: 1px solid var(--border-line);
+      padding: 4px 10px;
+      border-radius: 4px;
+      color: var(--text);
+    }
+
+    .chip-accent {
+      background: rgba(37, 99, 235, 0.05);
+      border-color: rgba(37, 99, 235, 0.15);
+      color: var(--accent-blue);
+    }
+
+    .meta-text {
+      font-size: 12.5px;
+      color: var(--accent-blue);
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    .info-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      font-size: 13.5px;
+    }
+
+    .info-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 24px 0;
+      border-top: 1px solid var(--border-line);
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+
+    @media (max-width: 950px) {
+      .navbar { flex-direction: column; gap: 10px; align-items: flex-start; }
+      .nav-right-container { width: 100%; justify-content: space-between; }
+    }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; }
+      .floating-card { order: -1; }
+      .grid { grid-template-columns: 1fr; gap: 16px; }
+      .card { animation: none !important; }
+      .nav-right-container { flex-direction: column-reverse; align-items: flex-start; gap: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="space-container" id="space"></div>
+
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">PRASAD GANESH HINGANE</div>
+      <div class="nav-right-container">
+        <div class="nav-links">
+          <a href="#about">Summary</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#education">Education</a>
+          <a href="#awards">Awards</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="#certifications">Certifications</a>
+          <a href="#trainings">Trainings</a>
+        </div>
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+          <span id="themeIcon">🌙</span> <span id="themeText">Dark Mode</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    
+    <section class="hero">
+      <div>
+        <div class="hero-kicker">Electronics & Computer Engineering</div>
+        <h1 class="hero-title">Seeking opportunities to solve <span>real-world</span> engineering challenges.</h1>
+        <p class="hero-subtitle">
+          B.Tech student at MIT ADT University with a strong technical focus on building, prototyping, and securing intelligent hardware ecosystems.
+        </p>
+        <div class="action-buttons">
+          <a href="mailto:hinganeprasad8@gmail.com" class="btn btn-primary">✉ Contact Email</a>
+          <a href="https://www.linkedin.com/in/prasad-hingane-3634742a2" target="_blank" class="btn btn-secondary">🔗 LinkedIn Profile</a>
+        </div>
+      </div>
+
+      <div class="floating-card">
+        <div style="font-size: 11px; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; margin-bottom: 6px;">Profile Specifications</div>
+        <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 6px; color: var(--accent-slate);">Prasad Ganesh Hingane</h3>
+        <p style="font-size: 13.5px; color: var(--text-soft); margin-bottom: 12px;">
+          Applying embedded systems, wireless communications, and artificial intelligence to defensive network infrastructures.
+        </p>
+        <div style="border-top: 1px solid var(--border-line); padding-top: 10px; font-size: 13px; color: var(--text);">
+          <div><strong>Phone:</strong> +91-8625003462</div>
+          <div><strong>Location:</strong> Pune, Maharashtra, India 411028</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">Professional Summary</h2>
+      <div class="card" style="animation: none !important;">
+        <p class="card-body" style="font-size: 14.5px; line-height: 1.7; margin-bottom: 0;">
+          I am a B.Tech student in Electronics & Computer Engineering at MIT ADT University with interests in Embedded Systems, IoT, LoRa Communication, and Cybersecurity. I have hands-on experience developing ESP32 and Arduino-based projects involving wireless communication, automation, GPS tracking, and sensor integration. I am seeking opportunities in Embedded Systems, IoT Development, Wireless Communication, and Cybersecurity where I can apply my technical and problem-solving skills to real-world engineering challenges.
+        </p>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <h2 class="section-title">Key Expertise</h2>
+      <div class="card" style="animation: none !important;">
+        <div class="chip-group">
+          <span class="chip chip-accent">Embedded Systems</span>
+          <span class="chip chip-accent">IoT (Internet of Things)</span>
+          <span class="chip chip-accent">LoRa Communication</span>
+          <span class="chip chip-accent">Cybersecurity</span>
+          <span class="chip chip-accent">Network Security</span>
+          <span class="chip chip-accent">Hardware Prototyping</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">MIT ADT - School of Engineering</h3>
+            <span class="card-tag">2023 – 2027</span>
+          </div>
+          <div class="card-subtitle">B.Tech. - Electronics & Computer Engineering</div>
+          <span class="meta-text" style="color: var(--accent-slate);"><strong>CGPA:</strong> 7.24 / 10</span>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Rayat Shikshan Sanstha's S.M. Joshi College, Pune</h3>
+            <span class="card-tag">Class of 2023</span>
+          </div>
+          <div class="card-subtitle">12th MSBSHSE</div>
+          <span class="meta-text" style="color: var(--accent-slate);"><strong>Percentage:</strong> 55 / 100</span>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Sardar Dastur Hoshang Boys High School, Pune</h3>
+            <span class="card-tag">Class of 2021</span>
+          </div>
+          <div class="card-subtitle">10th MSBSHSE</div>
+          <span class="meta-text" style="color: var(--accent-slate);"><strong>Percentage:</strong> 72.60 / 100</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <h2 class="section-title">Awards and Scholarships</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">3rd Prize - Best Paper Presentation</h3>
+            <span class="card-tag">ISIGTT 2026</span>
+          </div>
+          <p class="card-body">
+            Secured 3rd place in the Electronics and Communication Engineering track at the 8th International Symposium on Innovative Global Technology Trends (ISIGTT 2026) for presenting the Sentinel Command Network (SCN).
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Smart India Hackathon (SIH) 2025 Participant</h3>
+            <span class="card-tag">SIH 2025</span>
+          </div>
+          <p class="card-body">
+            Participated in the internal rounds of SIH 2025 with Team Meshtastic and Team Resonnex, working on innovative IoT and communication-based solutions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid">
+        
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">SilentTalk: ESP32 Morse Code Gloves</h3>
+            <span class="card-tag">Jun – Nov 2025</span>
+          </div>
+          <div class="card-subtitle">Mentor: Prof. Dnyaneshwar Kokare | Team Size: 4</div>
+          <ul class="card-list">
+            <li>Developed a wearable silent communication system using ESP32-based smart gloves for Morse code messaging without internet or Wi-Fi connectivity.</li>
+            <li>Integrated OLED display output, wireless data transmission, and Morse code encoding/decoding for emergency and assistive communication applications.</li>
+          </ul>
+          <div class="chip-group" style="margin-bottom: 12px;">
+            <span class="chip">ESP32</span><span class="chip">Embedded Systems</span><span class="chip">Morse Code Communication</span><span class="chip">OLED Display</span><span class="chip">Wireless Communication</span><span class="chip">LoRa</span>
+          </div>
+          <span class="meta-text"><a href="https://wokwi.com/projects/440266474173896705" target="_blank" style="color: var(--accent-blue); text-decoration: navy; font-weight: 600;">Workspace Simulation Link ↗</a></span>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Fire & Smoke Detection System using GSM</h3>
+            <span class="card-tag">Jan – Apr 2025</span>
+          </div>
+          <div class="card-subtitle">Mentor: Prof. Deepika Pede | Team Size: 4</div>
+          <ul class="card-list">
+            <li>Developed an automated fire and smoke detection system using Arduino and MQ2 sensors.</li>
+            <li>The system activates a relay-controlled water pump and sends SMS alerts through a GSM module during emergency situations.</li>
+          </ul>
+          <div class="chip-group">
+            <span class="chip">Arduino</span><span class="chip">MQ2 Sensor</span><span class="chip">GSM Module</span><span class="chip">Relay Control</span><span class="chip">Embedded Systems</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Sentinel Command Network (SCN)</h3>
+            <span class="card-tag">Core Architecture</span>
+          </div>
+          <div class="card-subtitle">Mentor: Prof. Dr. Sachin Patil | Team Size: 4</div>
+          <ul class="card-list">
+            <li>Developed a wearable tactical communication and monitoring system using ESP32 and LoRa technology for long-range communication without internet connectivity.</li>
+            <li>Integrated GPS tracking, health monitoring, Morse code-based messaging, and relay communication for defense and emergency applications.</li>
+          </ul>
+          <div class="chip-group">
+            <span class="chip">ESP32</span><span class="chip">LoRa Communication</span><span class="chip">GPS Tracking</span><span class="chip">Health Monitoring</span><span class="chip">IoT</span><span class="chip">Embedded Systems</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">MESHTASTIC: Decentralized Peer Network</h3>
+            <span class="card-tag">Grid Coordination</span>
+          </div>
+          <div class="card-subtitle">Mentor: Prof. Rohan Shinde | Team Size: 6</div>
+          <ul class="card-list">
+            <li>Developed a decentralized mesh communication system using ESP32 and LoRa technology for emergency coordination and GPS-based SOS messaging in crowded environments.</li>
+            <li>Implemented encrypted communication and self-healing mesh networking for reliable low-power communication.</li>
+          </ul>
+          <div class="chip-group">
+            <span class="chip">ESP32</span><span class="chip">LoRa</span><span class="chip">Mesh Networking</span><span class="chip">GPS</span><span class="chip">AES Encryption</span><span class="chip">IoT</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2 class="section-title">Publications / Research / White Papers</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">An Integrated Secure Communication System for Modern Soldier Connectivity using SCN</h3>
+            <span class="card-tag">May 12, 2026</span>
+          </div>
+          <div class="card-subtitle">Journal: International Journal of Innovative Research in Technology (IJIRT) - Vol 12 Issue 12</div>
+          <div class="card-subtitle" style="color: var(--text-soft); font-weight: normal; margin-top: -8px;">Mentor: Prof. Dr. Sachin Patil | No. of Authors: 5</div>
+          <p class="card-body">
+            Published a research paper on the Sentinel Command Network (SCN), a wearable long-range communication system designed for defense and emergency applications. The system integrates ESP32, LoRa communication, GPS tracking, and health monitoring with Morse code secure transmission formats.
+          </p>
+          <div class="chip-group">
+            <span class="chip">LoRa Communication</span><span class="chip">GPS Tracking</span><span class="chip">ESP32</span><span class="chip">Health Monitoring</span><span class="chip">Morse Code Messaging</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Arduino Based Fire and Smoke Alert Automatic Extinguisher with GSM800L SMS Alert</h3>
+            <span class="card-tag">Aug 12, 2025</span>
+          </div>
+          <div class="card-subtitle">Copyright Office, Government of India | Reg No: LD-20250171073</div>
+          <div class="card-subtitle" style="color: var(--text-soft); font-weight: normal; margin-top: -8px;">Mentor: Prof. Deepika Pede | No. of Authors: 4</div>
+          <p class="card-body">
+            Received official Copyright Registration from the Government of India for an automated fire and smoke detection system using Arduino, MQ2 sensors, relay control, and GSM800L SMS alert technology for emergency response applications.
+          </p>
+          <div class="chip-group">
+            <span class="chip">Embedded Systems</span><span class="chip">Arduino</span><span class="chip">GSM Module</span><span class="chip">Sensor Integration</span><span class="chip">Automation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <h2 class="section-title">Assessments & Certifications</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">3rd Prize for Best Paper Presentation</h3>
+            <span class="card-tag">ISIGTT 2026</span>
+          </div>
+          <div class="card-subtitle">Provider: MIT Art, Design & Technology University, Pune</div>
+          <p class="card-body">Awarded in the Electronics and Communication Engineering track for presenting the structural components and implementation of SCN.</p>
+          <div class="chip-group">
+            <span class="chip">Technical Writing</span><span class="chip">Research Presentation</span><span class="chip">Public Speaking</span><span class="chip">Embedded Systems</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Foundations of Cybersecurity</h3>
+            <span class="card-tag">Google</span>
+          </div>
+          <div class="card-subtitle">Provider: Google (via Coursera)</div>
+          <p class="card-body">Completed a foundational cybersecurity certification covering security principles, network threats, risk mitigation, and data protection concepts.</p>
+          <div class="chip-group">
+            <span class="chip">Network Security</span><span class="chip">Risk Management</span><span class="chip">Threat Detection</span><span class="chip">Security Controls</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Certificate Program on Underwater Domain Awareness (UDA)</h3>
+            <span class="card-tag">RT-MSSU</span>
+          </div>
+          <div class="card-subtitle">Provider: Ratan Tata Maharashtra State Skills University, Mumbai</div>
+          <p class="card-body">Completed a specialized program on underwater domain technologies, maritime security, and acoustic sensing applications.</p>
+          <div class="chip-group">
+            <span class="chip">Maritime Security</span><span class="chip">Acoustic Sensing</span><span class="chip">Oceanography</span><span class="chip">Strategic Surveillance</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Network Security</h3>
+            <span class="card-tag">Great Learning</span>
+          </div>
+          <div class="card-subtitle">Provider: Great Learning</div>
+          <p class="card-body">Completed a certification focused on network security concepts, cryptography, firewall implementation, and secure data transmission.</p>
+          <div class="chip-group">
+            <span class="chip">Cryptography</span><span class="chip">Firewall Configuration</span><span class="chip">Traffic Monitoring</span><span class="chip">Secure Communication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trainings">
+      <h2 class="section-title">Seminars / Trainings / Workshops</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Cyber Security with AI - 8-Week Industrial Training</h3>
+            <span class="card-tag">Top Performer</span>
+          </div>
+          <div class="card-subtitle">Feb 14 – Apr 09, 2026 | Internshala Trainings with IITM Pravartak</div>
+          <p class="card-body">Completed industrial training on cybersecurity fundamentals, VAPT, OWASP vulnerabilities, and AI-based threat analysis. Recognized as a Top Performer.</p>
+          <div class="chip-group">
+            <span class="chip">VAPT</span><span class="chip">OWASP Top 10</span><span class="chip">Threat Detection</span><span class="chip">Information Security</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Ethical Hacking with AI</h3>
+            <span class="card-tag">Grade 'A'</span>
+          </div>
+          <div class="card-subtitle">Feb 14 – Apr 09, 2026 | Skill India NSDC Certified</div>
+          <p class="card-body">Completed certification training in ethical hacking and AI-driven cybersecurity techniques. Awarded Grade 'A' performance by Scholiverse Educare (Internshala).</p>
+          <div class="chip-group">
+            <span class="chip">Ethical Hacking</span><span class="chip">Penetration Testing</span><span class="chip">Risk Assessment</span><span class="chip">Defensive Security</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Internet of Things (IoT) and Industrial IoT</h3>
+            <span class="card-tag">Training Node</span>
+          </div>
+          <div class="card-subtitle">Apr 06 – Apr 10, 2026 | MIT ADT - School of Engineering</div>
+          <p class="card-body">Completed training on IoT, Industrial IoT, cloud integration, sensor interfacing, and automation systems using ESP32 and Blynk Cloud.</p>
+          <div class="chip-group">
+            <span class="chip">IoT</span><span class="chip">Industrial IoT</span><span class="chip">ESP32</span><span class="chip">Blynk Cloud</span><span class="chip">Sensors</span><span class="chip">Automation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Deloitte Cyber Job Simulation</h3>
+            <span class="card-tag">Simulation</span>
+          </div>
+          <div class="card-subtitle">Nov 01 – Nov 19, 2025 | Deloitte (via Forage)</div>
+          <p class="card-body">Completed a cybersecurity job simulation focused on threat detection, network monitoring, and security analysis.</p>
+          <div class="chip-group">
+            <span class="chip">Log Analysis</span><span class="chip">Threat Detection</span><span class="chip">Incident Response</span><span class="chip">Network Monitoring</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Smart India Hackathon (SIH) 2025</h3>
+            <span class="card-tag">Hackathon</span>
+          </div>
+          <div class="card-subtitle">Sep 15 – Sep 16, 2025 | MIT ADT University</div>
+          <p class="card-body">Participated in Internal Smart India Hackathon (SIH) 2025 with Team Meshtastic and Team Resonnex for innovative IoT and communication-based solutions.</p>
+          <div class="chip-group">
+            <span class="chip">Rapid Prototyping</span><span class="chip">IoT Networks</span><span class="chip">Team Collaboration</span><span class="chip">Problem Solving</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">CRIEYA Pre-Incubation Program</h3>
+            <span class="card-tag">Incubation</span>
+          </div>
+          <div class="card-subtitle">Provider: CRIEYA</div>
+          <p class="card-body">Participated in innovation and startup pre-incubation activities focused on embedded systems and fire detection projects.</p>
+          <div class="chip-group">
+            <span class="chip">Innovation</span><span class="chip">Embedded Systems</span><span class="chip">IoT</span><span class="chip">Project Development</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities">
+      <div class="grid">
+        <div class="card" style="animation: none !important;">
+          <div class="card-title" style="margin-bottom: 12px;">Co-Curricular Activities</div>
+          <ul class="card-list" style="margin-bottom: 0;">
+            <li>Completed certifications in Cybersecurity, Network Security, and Underwater Domain Awareness (UDA).</li>
+            <li>Participated in Deloitte Cyber Job Simulation focused on log analysis and intrusion detection.</li>
+            <li>Attended workshops and seminars on IoT, Embedded Systems, Network Security, and AI-driven cybersecurity techniques.</li>
+          </ul>
+        </div>
+        <div class="card" style="animation: none !important;">
+          <div class="card-title" style="margin-bottom: 12px;">Extra-Curricular Activities</div>
+          <ul class="card-list" style="margin-bottom: 0;">
+            <li>Participated in fort conservation and cleanliness drives.</li>
+            <li>Assisted in intramural sports organizing activities.</li>
+            <li>Volunteered in campus cultural events and technical activities.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="personal">
+      <div class="grid">
+        <div class="card" style="animation: none !important;">
+          <div class="card-title" style="margin-bottom: 12px;">Personal Details</div>
+          <div class="info-list">
+            <div><span class="info-label">Date of Birth</span>06 Sep, 2005</div>
+            <div><span class="info-label">Gender / Marital Status</span>Male / Single</div>
+            <div><span class="info-label">Known Languages</span>English, Hindi, Marathi</div>
+            <div><span class="info-label">Current Address</span>F-10, Chourang Residency Satavwadi, Hadapsar, Pune, India - 411028</div>
+          </div>
+        </div>
+        <div class="card" style="animation: none !important;">
+          <div class="card-title" style="margin-bottom: 12px;">Personal Interests & Hobbies</div>
+          <div class="chip-group" style="margin-bottom: 10px;">
+            <span class="chip">Trekking</span>
+            <span class="chip">Nature Exploration</span>
+            <span class="chip">Recreational Sports</span>
+            <span class="chip">Physical Fitness</span>
+          </div>
+          <div style="margin-top: 15px; border-top: 1px solid var(--border-line); padding-top: 10px;">
+            <span class="info-label">Telemetry Backup Channels</span>
+            <div style="font-size: 13px; color: var(--text-soft);">hinganeprasad994@gmail.com</div>
+            <div style="font-size: 13px; color: var(--text-soft);">+91-8862020087</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>Prasad Ganesh Hingane · Academic & Professional Portfolio · <span id="year"></span></div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Spawn programmatic antigravity space dust drifting upward
+    const spaceElement = document.getElementById('space');
+    const particleCount = 45;
+
+    for (let i = 0; i < particleCount; i++) {
+      const dustNode = document.createElement('div');
+      dustNode.createElement('div');
+      dustNode.classList.add('dust');
+      
+      dustNode.style.left = `${Math.random() * 100}vw`;
+      dustNode.style.width = `${Math.random() * 4 + 1}px`;
+      dustNode.style.height = dustNode.style.width;
+      
+      dustNode.style.animationDuration = `${Math.random() * 12 + 10}s`;
+      dustNode.style.animationDelay = `-${Math.random() * 20}s`;
+      
+      spaceElement.appendChild(dustNode);
+    }
+
+    // JavaScript Theme Toggle Logics
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+
+    // Check system or localStorage configurations
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateToggleUI(savedTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateToggleUI(newTheme);
+    });
+
+    function updateToggleUI(theme) {
+      if (theme === 'dark') {
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light Mode';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark Mode';
+      }
+    }
+  </script>
+</body>
+
+</html>
